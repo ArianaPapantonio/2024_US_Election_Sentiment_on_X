@@ -76,10 +76,11 @@ def transform_datetime_columns(df, timestamp_column):
     
     # Split the 'timestamp' column into 'date' and 'time'
     df['date'] = df[timestamp_column].dt.date
-    df['time'] = df[timestamp_column].dt.time  # Mantener como datetime.time, no timedelta
+    df['time'] = df[timestamp_column].dt.strftime('%H:%M:%S')  # Convertir time to string (for Tableau usage)
 
     # Convert 'date' column to datetime type (if needed)
     df['date'] = pd.to_datetime(df['date'], errors='coerce')
 
     return df
+
 
