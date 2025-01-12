@@ -62,7 +62,7 @@ Below is a breakdown of missing data, data types, and the number of values:""")
 def transform_datetime_columns(df, timestamp_column):
     """
     Transform a 'timestamp' column to datetime, and split it into two separate columns: 'date' and 'time'.
-    Also, convert 'date' to datetime and 'time' to timedelta.
+    Also, convert 'date' to datetime.
 
     Parameters:
     df (pandas.DataFrame): DataFrame containing the column to transform
@@ -76,12 +76,10 @@ def transform_datetime_columns(df, timestamp_column):
     
     # Split the 'timestamp' column into 'date' and 'time'
     df['date'] = df[timestamp_column].dt.date
-    df['time'] = df[timestamp_column].dt.time
+    df['time'] = df[timestamp_column].dt.time  # Mantener como datetime.time, no timedelta
 
     # Convert 'date' column to datetime type (if needed)
     df['date'] = pd.to_datetime(df['date'], errors='coerce')
 
-    # Convert 'time' column to timedelta (if needed)
-    df['time'] = pd.to_timedelta(df['time'].astype(str), errors='coerce')
-    
     return df
+
