@@ -9,6 +9,8 @@ Goal:
 
 As a data analyst, the objective of this project is to uncover actionable insights into voter sentiment, policy discourse, and engagement patterns during the election cycle. This analysis will inform stakeholders about public reactions to key events and the overall digital pulse leading up to the election.
 
+[Kaggle Source](https://www.kaggle.com/datasets/emirhanai/2024-u-s-election-sentiment-on-x)
+
 
 ## Data Structure Overview
 
